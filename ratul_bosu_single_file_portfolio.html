@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Ratul Bosu, a final-year Computer Science and Engineering student at Green University of Bangladesh."
+  />
+  <meta name="author" content="Ratul Bosu" />
+  <meta property="og:title" content="Ratul Bosu | CSE Portfolio" />
+  <meta
+    property="og:description"
+    content="Final-year CSE student portfolio featuring projects, education, skills, achievements, and contact information."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="profile.PNG" />
+  <title>Ratul Bosu | CSE Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --surface-soft: #eef4fb;
+      --text: #172033;
+      --muted: #637083;
+      --primary: #17456f;
+      --primary-light: #2d6ca3;
+      --accent: #dbeafe;
+      --border: #d8e1ec;
+      --shadow: 0 24px 70px rgba(23, 32, 51, 0.12);
+      --radius: 22px;
+      --max-width: 1160px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0c1220;
+      --surface: #111827;
+      --surface-soft: #172235;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --primary: #7cc4ff;
+      --primary-light: #a5d8ff;
+      --accent: #1e3a5f;
+      --border: #2c3a50;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, var(--accent), transparent 34%), var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .section {
+      padding: 5.5rem 0;
+    }
+
+    .section-title {
+      margin-bottom: 2.2rem;
+    }
+
+    .section-title span {
+      display: inline-flex;
+      color: var(--primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.85rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 900;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--surface);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .icon-btn,
+    .menu-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 0.65rem 0.9rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .hero {
+      padding: 6rem 0 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-card,
+    .info-card,
+    .project-card,
+    .contact-card,
+    .timeline-card {
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: clamp(2rem, 4vw, 4rem);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      color: var(--primary);
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 8vw, 5.7rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      margin: 0;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero h2 {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      font-weight: 800;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 680px;
+      font-size: 1.05rem;
+      margin: 1.4rem 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.85rem 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: var(--surface);
+      border-color: var(--primary);
+    }
+
+    .btn.secondary {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .profile-panel {
+      padding: 1.25rem;
+    }
+
+    .photo-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface-soft);
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .quick-info {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .quick-info a,
+    .quick-info p {
+      margin: 0;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .info-card,
+    .contact-card,
+    .timeline-card {
+      padding: 1.5rem;
+    }
+
+    .info-card h3,
+    .project-card h3,
+    .contact-card h3,
+    .timeline-card h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .info-card p,
+    .project-card p,
+    .contact-card p,
+    .timeline-card p {
+      color: var(--muted);
+      margin: 0.35rem 0;
+    }
+
+    .small-meta {
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 0.92rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--accent);
+      top: -90px;
+      right: -90px;
+      opacity: 0.8;
+    }
+
+    .project-card > * {
+      position: relative;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1.25rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .contact-list a,
+    .contact-list p {
+      margin: 0;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.35rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 0.9rem 1rem;
+      font: inherit;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    button:focus,
+    a:focus {
+      outline: 3px solid color-mix(in srgb, var(--primary) 35%, transparent);
+      outline-offset: 3px;
+    }
+
+    .form-status {
+      color: var(--primary);
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .projects-grid,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-photo {
+        height: 360px;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: 74px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.65rem;
+      }
+
+      .menu-btn {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section {
+        padding: 4rem 0;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-card,
+      .info-card,
+      .project-card,
+      .contact-card,
+      .timeline-card {
+        padding: 1.2rem;
+      }
+
+      .profile-photo {
+        height: 300px;
+      }
+
+      .nav {
+        padding-inline: 0.8rem;
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#home" class="brand">
+        <span class="brand-mark">RB</span>
+        <span>Ratul Bosu</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievement">Achievement</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">🌙</button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Final-Year CSE Student</span>
+          <h1>Ratul <span>Bosu</span></h1>
+          <h2>Computer Science & Engineering Student</h2>
+          <p>
+            I am a final-year Computer Science & Engineering student at Green University of Bangladesh. I have a strong interest in programming and aim to grow as a professional by applying my skills in real-world projects while continuously learning modern tools and technologies.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+            <a class="btn secondary" href="ratul-bosu-cv.pdf" download>Download CV</a>
+          </div>
+        </div>
+
+        <aside class="profile-panel hero-card" aria-label="Profile summary">
+          <div class="photo-wrap">
+            <img class="profile-photo" src="photo.png" alt="Portrait of Ratul Bosu" />
+          </div>
+          <div class="quick-info">
+            <a href="mailto:rbratul600@gmail.com">📧 rbratul600@gmail.com</a>
+            <a href="tel:+8801976628559">📞 01976628559</a>
+            <p>📍 Sahazadpur, Vatara, Gulshan, Dhaka</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>About Me</span>
+          <h2>Focused on practical software projects and continuous learning.</h2>
+        </div>
+        <div class="grid-2">
+          <article class="info-card">
+            <h3>Career Objective</h3>
+            <p>
+              To build a strong professional career in software development by using programming knowledge, academic experience, and modern development tools to solve real-world problems.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Interests</h3>
+            <p>
+              Programming, web development, academic software systems, AI-powered security tools, responsive interface design, and practical problem solving.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-title">
+          <span>Education</span>
+          <h2>Academic background</h2>
+        </div>
+        <div class="grid-3">
+          <article class="timeline-card">
+            <p class="small-meta">8th Semester Completed</p>
+            <h3>Green University of Bangladesh</h3>
+            <p>B.Sc. in Computer Science and Engineering</p>
+            <p><strong>CGPA:</strong> 2.40/4.00</p>
+          </article>
+          <article class="timeline-card">
+            <p class="small-meta">2021</p>
+            <h3>Govt. Yasin College, Faridpur</h3>
+            <p>Higher Secondary Certificate</p>
+            <p><strong>GPA:</strong> 4.25</p>
+          </article>
+          <article class="timeline-card">
+            <p class="small-meta">2019</p>
+            <h3>Kanaipur High School, Faridpur</h3>
+            <p>Secondary School Certificate</p>
+            <p><strong>GPA:</strong> 4.33</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-title">
+          <span>Skills</span>
+          <h2>Technologies and tools</h2>
+        </div>
+        <div class="grid-3">
+          <article class="info-card">
+            <h3>Programming</h3>
+            <div class="chips">
+              <span class="chip">C</span>
+              <span class="chip">Java</span>
+              <span class="chip">Python</span>
+            </div>
+          </article>
+          <article class="info-card">
+            <h3>Technologies</h3>
+            <div class="chips">
+              <span class="chip">AutoCAD</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">Canva</span>
+              <span class="chip">PHP</span>
+            </div>
+          </article>
+          <article class="info-card">
+            <h3>Office Tools</h3>
+            <div class="chips">
+              <span class="chip">Microsoft Word</span>
+              <span class="chip">Excel</span>
+              <span class="chip">PowerPoint</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-title">
+          <span>Projects</span>
+          <h2>Academic and software work</h2>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <p class="small-meta">Web-Based Academic System</p>
+            <h3>ThesisConnect — Smart University Thesis Management System</h3>
+            <p>
+              Developed a complete web-based thesis management system that streamlines university thesis workflows. The system enables students, supervisors, and administrators to collaborate efficiently by digitalizing team creation, supervisor allocation, thesis applications, progress tracking, meeting scheduling, and official notices.
+            </p>
+            <div class="chips">
+              <span class="chip">Web App</span>
+              <span class="chip">Thesis Workflow</span>
+              <span class="chip">Management System</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <p class="small-meta">AI-Powered Security System</p>
+            <h3>PhishGuard — AI-Powered Phishing Detection System</h3>
+            <p>
+              Built a web-based phishing detection system capable of analyzing suspicious URLs and emails using rule-based checks and NLP techniques. Features include real-time URL scanning, email spoofing analysis, unsafe link detection, and dashboard-based report visualization.
+            </p>
+            <div class="chips">
+              <span class="chip">Django 5+</span>
+              <span class="chip">NLTK</span>
+              <span class="chip">BeautifulSoup</span>
+              <span class="chip">Scikit-learn</span>
+              <span class="chip">Tailwind CSS</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="achievement">
+      <div class="container">
+        <div class="section-title">
+          <span>Achievement</span>
+          <h2>Academic accomplishments</h2>
+        </div>
+        <div class="grid-2">
+          <article class="info-card">
+            <h3>Software Project Completion</h3>
+            <p>
+              Successfully completed multiple academic software projects using Java, Python, and Android Studio.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Languages</h3>
+            <div class="chips">
+              <span class="chip">Bangla</span>
+              <span class="chip">English</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reference">
+      <div class="container">
+        <div class="section-title">
+          <span>Reference</span>
+          <h2>Academic reference</h2>
+        </div>
+        <article class="info-card">
+          <h3>Md. Parvez Hossain</h3>
+          <p>Lecturer & Program Coordinator for GUB</p>
+          <p>Green University of Bangladesh</p>
+          <p><strong>Phone:</strong> +880 1829-073774</p>
+          <p><strong>Email:</strong> parvez@cse.green.edu.bd</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <span>Contact</span>
+          <h2>Let’s connect</h2>
+        </div>
+
+        <div class="contact-layout">
+          <article class="contact-card">
+            <h3>Contact Information</h3>
+            <p>Available for academic collaboration, internship opportunities, and software project discussions.</p>
+            <div class="contact-list">
+              <a href="mailto:rbratul600@gmail.com">📧 rbratul600@gmail.com</a>
+              <a href="tel:+8801976628559">📞 01976628559</a>
+              <p>📍 Sahazadpur, Vatara, Gulshan, Dhaka</p>
+              <button class="btn secondary" type="button" id="copyEmail">Copy Email</button>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <h3>Send a Message</h3>
+            <form id="contactForm">
+              <label>
+                Name
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </label>
+              <label>
+                Message
+                <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+              </label>
+              <button class="btn primary" type="submit">Prepare Email</button>
+              <p class="form-status" id="formStatus" role="status"></p>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Ratul Bosu. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const copyEmail = document.getElementById("copyEmail");
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+    const email = "rbratul600@gmail.com";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      html.setAttribute("data-theme", "dark");
+      themeToggle.textContent = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = html.getAttribute("data-theme") === "dark";
+      if (isDark) {
+        html.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙";
+      } else {
+        html.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️";
+      }
+    });
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "Close" : "Menu";
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "Menu";
+      });
+    });
+
+    copyEmail.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        copyEmail.textContent = "Email Copied";
+        setTimeout(() => (copyEmail.textContent = "Copy Email"), 1800);
+      } catch {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const senderEmail = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !senderEmail || !message) {
+        formStatus.textContent = "Please fill in all fields.";
+        return;
+      }
+
+      const subject = encodeURIComponent(`Portfolio message from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${senderEmail}\n\n${message}`);
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      formStatus.textContent = "Your email app should open with the message prepared.";
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
